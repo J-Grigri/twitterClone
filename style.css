@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(242, 246, 250);
+}
+
+/* Top section */
+
+#contentsBox {
+    margin-top: 100px;
+    height: 100px;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+.postContainer {
+    margin-top: 60px;
+    width: 700px;
+}
+
+#charCountArea {
+    margin-left: 16px;
+    margin-top: 20px;
+}
+
+.woohoobutton {
+    margin-top: 20px;
+    margin-right: 18px;
+}
+
+/* Footer part */
+.socIcon {
+    font-size: 20px;
+}
