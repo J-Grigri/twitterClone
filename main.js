@@ -1,6 +1,6 @@
 let textArea = document.getElementById('contentsBox');
-let tweetList = []
-let id = 0;  // must define the id outside.
+let tweetList = [];
+let id = 0;  
 let remain = 140
 
 // Letter count at the TextArea
@@ -52,6 +52,11 @@ let retweet = (originid) => {
     render(tweetList)
     console.log(tweetList);
 }
+// Like button 
+function liketweet(x) {
+    x.classList.toggle("fa-thumbs-down");
+}
+
 
 //delete Tweet 
 let deleteTweet = (deleteId) => {
@@ -61,18 +66,13 @@ let deleteTweet = (deleteId) => {
     render(tweetList);
 }
 
-//Like & unlike button
-let toggle = (i) => {
-    tweetList[i].isDone = !(tweetList[i].isDone)
-    render(tweetList)
-}
 
 // Render 
 let render = (array) => {
     let htmlForTweet = array.map((item) => 
     `<li>${item.contents} 
-    <button id="likeBtn">like</button>
 
+    <button><i onclick="liketweet(this)" class="fa fa-thumbs-up"></i></button>
     <button onclick="retweet(${item.id})">retweet</button>
     <button onclick="deleteTweet(${item.id})">delete</button>
     </li>`).join('')
