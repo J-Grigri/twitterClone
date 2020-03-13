@@ -1,35 +1,103 @@
+/* Page set up */
 body {
-    background-color: rgb(242, 246, 250);
+  background-color: rgb(242, 246, 250);
+  font-family: 'Roboto Condensed', sans-serif;
 }
-
+#pageContainer {
+  position: relative;
+  min-height: 100vh;
+}
+#content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* Global classes */
+h3 {
+    font-size:1.5rem;
+}
+p {
+    color:grey;
+}
+/* Bootstrap classes */
+.row {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 15px;
+}
+.container {
+    
+}
+/* Navbar */
+.nav-item {
+    list-style: none;
+}
+.navbar {
+    justify-content: space-around;
+}
 /* Top section */
 
 #contentsBox {
-    margin-top: 100px;
-    height: 100px;
-}
-
-.logo {
-    height: 60px;
-    width: 60px;
-}
-
-.postContainer {
-    margin-top: 60px;
-    width: 700px;
+  margin-top: 100px;
 }
 
 #charCountArea {
-    margin-left: 16px;
-    margin-top: 20px;
+    display: flex;
+  align-items: flex-end;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+.postContainer {
+  margin-top: 20px;
 }
 
 .woohoobutton {
-    margin-top: 20px;
-    margin-right: 18px;
+  display: flex;
+  align-items: center;
 }
 
-/* Footer part */
+/* Footer section */
 .socIcon {
-    font-size: 20px;
+  font-size: 20px;
+  padding: 25px;
 }
+.iconList {
+}
+
+.firstFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 20px;
+  height:50px;
+}
+.footerBottom {
+  text-align: center;
+  color:grey;
+}
+
+.footerHover: hover {
+    color: #8789C0;
+}
+/* .footerText {
+    display:flex;
+    align-items: center;
+} */
+

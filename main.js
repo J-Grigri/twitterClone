@@ -19,7 +19,7 @@ textArea.addEventListener('input', letterCount);
 // Hashtag recognition
 
 
-// add the Tweet
+// add a Tweet
 let addTweet = () => {
     let tweet = {
         id: id, // unique value 
