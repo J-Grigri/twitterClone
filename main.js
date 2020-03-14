@@ -71,7 +71,7 @@ let deleteTweet = (deleteId) =>
     tweetList = tweetList.filter(e => e.id !== deleteId && e.originTweetID !== deleteId)
     // 2. show again. 
 render(tweetList);
-}
+
 
 
 // Render 
