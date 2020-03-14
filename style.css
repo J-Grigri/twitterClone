@@ -1,103 +1,124 @@
 /* Page set up */
+
 body {
-  background-color: rgb(242, 246, 250);
-  font-family: 'Roboto Condensed', sans-serif;
+    background-color: rgb(242, 246, 250);
+    font-family: 'Roboto Condensed', sans-serif, monospace;
 }
+
 #pageContainer {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
+
 #content-wrap {
-  padding-bottom: 2.5rem; /* Footer height */
+    padding-bottom: 2.5rem;
+    /* Footer height */
 }
+
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
+
+
 /* Global classes */
+
 h3 {
-    font-size:1.5rem;
+    font-size: 1.5rem;
 }
+
 p {
-    color:grey;
+    color: grey;
 }
+
+
 /* Bootstrap classes */
+
 .row {
-  margin-right: 0;
-  margin-left: 0;
-  margin-top: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 15px;
 }
-.container {
-    
-}
+
+
 /* Navbar */
+
 .nav-item {
     list-style: none;
 }
+
 .navbar {
     justify-content: space-around;
 }
-/* Top section */
 
-#contentsBox {
-  margin-top: 100px;
-}
+
+/* Top section */
 
 #charCountArea {
     display: flex;
-  align-items: flex-end;
+    align-items: flex-end;
 }
 
 .logo {
-  height: 60px;
-  width: 60px;
+    height: 60px;
+    width: 60px;
 }
 
 .postContainer {
-  margin-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid lightblue;
+    border-radius: 15px; */
 }
 
 .woohoobutton {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
+
 /* Footer section */
+
 .socIcon {
-  font-size: 20px;
-  padding: 25px;
-}
-.iconList {
+    font-size: 20px;
+    padding: 25px;
 }
 
 .firstFooter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
 }
 
 .footerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 80%;
-  margin-bottom: 20px;
-  height:50px;
-}
-.footerBottom {
-  text-align: center;
-  color:grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 20px;
+    height: 50px;
 }
 
-.footerHover: hover {
+.footerBottom {
+    text-align: center;
+    color: grey;
+}
+
+.footerHover:hover {
     color: #8789C0;
 }
+
+#footer {
+    bottom: 0;
+}
+
+
 /* .footerText {
     display:flex;
     align-items: center;
 } */
-
