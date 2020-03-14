@@ -18,6 +18,11 @@ let letterCount = () => {
 textArea.addEventListener('input', letterCount);
 
 // Hashtag recognition
+// let hashtag = tweetList.filter((hash) => hash.charAt(0) == '#')
+// hashtagArray.push(hashtag);
+
+// console.log("Names that start with #: ", hashtag)
+
 // document.getElementById
 
 // for (let i=0; i<textArea.value.length; i++){
@@ -76,13 +81,30 @@ let deleteTweet = (deleteId) => {
 
 // Render 
 let render = (array) => {
-    let htmlForTweet = array.map((item) => 
-    `<li>${item.contents} 
+    let htmlForTweet = array.map((item) => {
+    let hashtag = item.contents.replace(/^#\w+$/, (item) => {return `<a href="#">${item}</a>` }
+    );
+    
+    console.log(hashtag);
 
-    <button><i onclick="liketweet(this)" class="fa fa-thumbs-up"></i></button>
-    <button onclick="retweet(${item.id})">retweet</button>
-    <button onclick="deleteTweet(${item.id})">delete</button>
-    </li>`).join('')
+
+    return `<div id="tweetOutput">
+        <div class="outputTop">
+            <img src="robot.png" style="">
+            <span style="padding-left:20px; padding-right:20px">Username</span>
+            <span>Time</span>
+        </div>
+        <div class="tweetBox" style="word-wrap: break-word">
+            <div style="font-size: 20px; padding:10px">${hashtag}</div> 
+        </div>
+        <div class="tweetButtons">
+            <button type="button" class="btn btn-light"><i onclick="liketweet(this)" class="fa fa-thumbs-up"></i></button>
+            <button type="button" class="btn btn-light" onclick="retweet(${item.id})">Retweet</button>
+            <button type="button" class="btn btn-light" onclick="deleteTweet(${item.id})">Delete</button>
+        </div>
+    </div>`}).join('')
+    
+
     document.getElementById('tweetArea').innerHTML = htmlForTweet
 }
 
