@@ -1,5 +1,6 @@
 let textArea = document.getElementById('contentsBox');
 let tweetList = [];
+let hashtagArray = []
 let id = 0;  
 let remain = 140
 
@@ -17,7 +18,13 @@ let letterCount = () => {
 textArea.addEventListener('input', letterCount);
 
 // Hashtag recognition
+// document.getElementById
 
+// for (let i=0; i<textArea.value.length; i++){
+//     if (textArea === '#'){
+//         let hashtag = 
+//     }
+// }
 
 // add a Tweet
 let addTweet = () => {

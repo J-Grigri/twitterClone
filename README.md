@@ -13,6 +13,8 @@
 * [X] The user should be able to "Like". When "Like" is clicked, the text should change to "Unlike". When "Unlike" is clicked, the text should change to "Like". Alternatively, use a heart icon (colored or not colored).
 * [ ] When a "Liked" tweet is retweeted, the new tweet should not be liked.
 * [ ] Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
+    * identify the word (either # or @) either as you type (event: space-bar) or at the end of the sentence (split the whole sentence into arrays of string and check each of them).
+    * For #: if the word has # at the front, then add that word to hashtags array (each tweet should have 1 hashtags array. Push that word into the hashtags array.
 * [X] The user should be able to delete a tweet.
 
 ## Features v2:
