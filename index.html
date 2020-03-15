@@ -7,7 +7,7 @@
     <title>Twitter clone</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Playfair+Display|Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Playfair+Display|Roboto+Condensed&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -75,47 +75,148 @@
                 <a><i class="fa fa-linkedin socIcon "></i></a>
                 <a><i class="fa fa-instagram socIcon "></i></a>
             </div>
-        </div>
 
-        <div class="container col-sm ">
-            <!--for the info-->
-            <div class="row col-sm " style="color:#8789C0; display: flex; justify-content: center; ">
-                <div class=" col-3 ">
-                    <div class=" col-9 ">
-                        <h6 style="font-weight: bold ">About</h6>
-                        <p> Donec ut euismod nulla, eget commodo sapien. Quisque vitae enimsed nibh sodab pellentesque nec non magna.</p>
+            <body id="content-wrap">
+                <nav class="col-sm fixed-top navbar navbar-light" style="background-color: #7CC6FE;">
+                    <div class="col-4">
+                        <a class=" navbar-brand" style="color: whitesmoke;" href="index.html">
+                            <img class="logo" src="applogo.png" />OOHOO</a>
                     </div>
-                </div>
-                <div class="col-2 ">
-                    <h6 style="font-weight: bold ">Products</h6>
-                    <p>Interdum Ipsum </p>
-                    <p>Porttitor Mauri </p>
-                    <p>Imperdiet Ornare </p>
-                </div>
-                <div class="col-2 ">
-                    <h6 style="font-weight: bold ">Useful links </h6>
-                    <p>Your Account</p>
-                    <p> Woof Expert</p>
-                    <p>Help</p>
-                </div>
-                <div class="col-2 ">
-                    <h6 style="font-weight: bold ">Contact</h6>
-                    <p><i class="fa fa-home mr-3 " aria-hidden="true "></i> Ho Chi Minh, Vietnam</p>
-                    <p><i class="fa fa-envelope mr-3 " aria-hidden="true "></i>info@info.com</p>
-                    <p><i class="fa fa-phone mr-3 " aria-hidden="true "></i>+84 12345678</p>
-                </div>
-            </div>
-        </div>
-        <div style="display:flex;justify-content: center; ">© 2020 Copyright <a href="https://github.com/andreceetnn "> An</a> | <a href="https://github.com/J-Grigri ">Jurgis</a>
-        </div>
-    </footer>
+                    <div class="col-2">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                    <input id="userInput" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Taco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Soft drink</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quesadilla</a>
+                    </li>
+                </nav>
+                <!-- INPUT SECTION -->
+                <!-- Main part -->
+                <div class="container col-sm postContainer" style="padding-top: 100px;">
+                    <div class="col-3"></div>
 
+                    <div class="col-6" style="border: 1px solid lightblue; border-radius: 10px; ">
+                        <div class=" input-group">
+                            <textarea onfocus="this.value=''" style="margin: 15px; margin-bottom: 5px; height: 100px; border-radius: 5px;" class="form-control" aria-label="With textarea" id="contentsBox" placeholder="How are you feeling?" maxlength="140"></textarea>
+                        </div>
+                        <div class=" text-muted row" style="margin: 15px; display: flex; justify-content: space-between;">
+                            <div id="charCountArea">140 characters remaining</div>
+                            <button onclick="addTweet()" class="btn btn-primary woohoobutton" data-toggle="button" aria-pressed="false">
+            WooHoo
+          </button>
+                        </div>
+                    </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
-    <script src="main.js "></script>
+                    <div class="col-3"></div>
+                </div>
+                <div>
+                    <div id="tweetArea"></div>
+                </div>
 
-</body>
+                <!-- OUTPUT SECTION -->
+
+                <!--outputtweet-->
+                <div style="display: flex; justify-content: center;">
+                    <div id="tweetArea"></div>
+                </div>
+
+                <footer class="col-xs;">
+                    <!-- <div class="container col-sm"> -->
+                    <!--for the bar-->
+                    <div class="row col-sm" style="background-color:#7CC6FE; display: flex; text-align: center; align-items: center; color:white ">
+                        <h3 class="col-6 ">Connect with your friends!</h3>
+                        <div class="iconList col-6 " style="display: flex; justify-content: center; ">
+                            <a><i class="fa fa-facebook-f socIcon "></i></a>
+                            <a><i class="fa fa-twitter socIcon "></i></a>
+                            <a><i class="fa fa-linkedin socIcon "></i></a>
+                            <a><i class="fa fa-instagram socIcon "></i></a>
+                        </div>
+                    </div>
+
+                    <div class="container col-sm ">
+                        <!--for the info-->
+                        <div class="row col-sm " style="color:#8789C0; display: flex; justify-content: center; ">
+                            <div class=" col-3 ">
+                                <div class=" col-9 ">
+                                    <h6 style="font-weight: bold ">About</h6>
+                                    <p> Donec ut euismod nulla, eget commodo sapien. Quisque vitae enimsed nibh sodab pellentesque nec non magna.</p>
+                                </div>
+                            </div>
+                            <div class="col-2 ">
+                                <h6 style="font-weight: bold ">Products</h6>
+                                <p>Interdum Ipsum </p>
+                                <p>Porttitor Mauri </p>
+                                <p>Imperdiet Ornare </p>
+                            </div>
+                            <div class="col-2 ">
+                                <h6 style="font-weight: bold ">Useful links </h6>
+                                <p>Your Account</p>
+                                <p> Woof Expert</p>
+                                <p>Help</p>
+                            </div>
+                            <div class="col-2 ">
+                                <h6 style="font-weight: bold ">Contact</h6>
+                                <p><i class="fa fa-home mr-3 " aria-hidden="true "></i> Ho Chi Minh, Vietnam</p>
+                                <p><i class="fa fa-envelope mr-3 " aria-hidden="true "></i>info@info.com</p>
+                                <p><i class="fa fa-phone mr-3 " aria-hidden="true "></i>+84 12345678</p>
+                            </div>
+                            =======
+                            <div class="container col-sm">
+                                <!--for the info-->
+                                <div class="row col-sm" style="color:#8789C0; display: flex; justify-content: center;">
+                                    <div class=" col-3 ">
+                                        <div class=" col-9 ">
+                                            <h6 style="font-weight: bold">About</h6>
+                                            <p>
+                                                Donec ut euismod nulla, eget commodo sapien. Quisque vitae enimsed nibh sodab pellentesque nec non magna.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 style="font-weight: bold">Products</h6>
+                                        <p>Interdum Ipsum</p>
+                                        <p>Porttitor Mauri</p>
+                                        <p>Imperdiet Ornare</p>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <h6 style="font-weight: bold">Useful links</h6>
+                                        <p>Your Account</p>
+                                        <p>Woof Expert</p>
+                                        <p>Help</p>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <h6 style="font-weight: bold">Contact</h6>
+                                        <p>
+                                            <i class="fa fa-home mr-3" aria-hidden="true"></i> Ho Chi Minh, Vietnam
+                                        </p>
+                                        <p>
+                                            <i class="fa fa-envelope mr-3" aria-hidden="true"></i>info@info.com
+                                        </p>
+                                        <p>
+                                            <i class="fa fa-phone mr-3" aria-hidden="true"></i>+84 12345678
+                                        </p>
+                                    </div>
+                                </div>
+                                <div style="display:flex;justify-content: center; ">© 2020 Copyright <a href="https://github.com/andreceetnn "> An</a> | <a href="https://github.com/J-Grigri ">Jurgis</a>
+                                </div>
+                </footer>
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+                <script src="main.js "></script>
+
+            </body>
 
 </html>
