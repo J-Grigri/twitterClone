@@ -1,20 +1,20 @@
 let textArea = document.getElementById('contentsBox');
 let tweetList = [];
 let hashtagArray = []
-let id = 0;  
+let id = 0;
 let remain = 140
 
 // Letter count at the TextArea
 let letterCount = () => {
-    let remain = 140 - textArea.value.length; // calculation
+        let remain = 140 - textArea.value.length; // calculation
 
-    if (remain < 0) {
-        document.getElementById('charCountArea').innerHTML = `Remaining : ${remain}`.fontcolor("red");
-    } else {
-        document.getElementById('charCountArea').innerHTML = `Remaining : ${remain}`;
+        if (remain < 0) {
+            document.getElementById('charCountArea').innerHTML = `Remaining : ${remain}`.fontcolor("red");
+        } else {
+            document.getElementById('charCountArea').innerHTML = `Remaining : ${remain}`;
+        }
     }
-}
-// Event listener on contents box
+    // Event listener on contents box
 textArea.addEventListener('input', letterCount);
 
 // Hashtag recognition
@@ -38,11 +38,11 @@ let addTweet = () => {
         contents: textArea.value
     }
     tweetList.push(tweet); //add a new tweet to tweetList array
-    
+
     render(tweetList);
     id++;
-    contentsBox.value = "Start typing...";
-    charCountArea.innerHTML = `Remaining : 140`;
+    contentsBox.value = "";
+    charCountArea.innerHTML = `Remaining characrters: 140`;
 }
 
 // retweet function
@@ -53,17 +53,20 @@ let retweet = (originid) => {
 
     // 2. make the retweet object and it will have the same contents with original tweet and parents id 
     let retweetObject = {
-        id: id,
-        contents: originTweet.contents,
-        originTweetID: originid  // Id from the parent
-    }
-    //3. push retweet object into tweetList
+            id: id,
+            contents: originTweet.contents,
+            originTweetID: originid // Id from the parent
+        }
+        //3. push retweet object into tweetList
     tweetList.push(retweetObject);
 
     id++
     render(tweetList)
     console.log(tweetList);
 }
+
+
+
 // Like button 
 function liketweet(x) {
     x.classList.toggle("fa-thumbs-down");
@@ -73,22 +76,23 @@ function liketweet(x) {
 //delete Tweet 
 let deleteTweet = (deleteId) => {
     // 1. remove original tweeter id and retweet id 
-    tweetList = tweetList.filter(e => e.id !== deleteId && e.originTweetID !== deleteId)
-    // 2. show again. 
+    tweetList = tweetList.filter(e => e.id !== deleteId && e.originTweetID !== deleteId);
     render(tweetList);
-}
+
+};
+
+
 
 
 // Render 
 let render = (array) => {
     let htmlForTweet = array.map((item) => {
-    let hashtag = item.contents.replace(/^#\w+$/, (item) => {return `<a href="#">${item}</a>` }
-    );
-    
-    console.log(hashtag);
+        let hashtag = item.contents.replace(/^#\w+$/, (item) => { return `<a href="#">${item}</a>` });
+
+        console.log(hashtag);
 
 
-    return `<div id="tweetOutput">
+        return `<div id="tweetOutput">
         <div class="outputTop">
             <img src="robot.png" style="">
             <span style="padding-left:20px; padding-right:20px">Username</span>
@@ -102,12 +106,9 @@ let render = (array) => {
             <button type="button" class="btn btn-light" onclick="retweet(${item.id})">Retweet</button>
             <button type="button" class="btn btn-light" onclick="deleteTweet(${item.id})">Delete</button>
         </div>
-    </div>`}).join('')
-    
+    </div>`
+    }).join('')
+
 
     document.getElementById('tweetArea').innerHTML = htmlForTweet
 }
-
-
-
-
