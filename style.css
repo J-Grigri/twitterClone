@@ -94,10 +94,6 @@ p {
     align-items: flex-end;
 }
 
-.tweetBox {
-    border: 1px solid red;
-}
-
 .tweetButtons {
     padding-left: 20px;
 }
