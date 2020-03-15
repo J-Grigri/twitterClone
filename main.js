@@ -1,8 +1,17 @@
 let textArea = document.getElementById('contentsBox');
 let tweetList = [];
-let hashtagArray = []
+let hashtagArray = [];
 let id = 0;
-let remain = 140
+let remain = 140;
+let tweetTime;
+let userName; 
+let userInput = document.getElementById("userInput");//grabs the username input
+
+//post time
+
+// let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'long' };
+let today = new Date();
+let postTime = today.toLocaleString("en-US")
 
 // Letter count at the TextArea
 let letterCount = () => {
@@ -17,26 +26,22 @@ let letterCount = () => {
     // Event listener on contents box
 textArea.addEventListener('input', letterCount);
 
-// Hashtag recognition
-// let hashtag = tweetList.filter((hash) => hash.charAt(0) == '#')
-// hashtagArray.push(hashtag);
-
-// console.log("Names that start with #: ", hashtag)
-
-// document.getElementById
-
-// for (let i=0; i<textArea.value.length; i++){
-//     if (textArea === '#'){
-//         let hashtag = 
-//     }
-// }
-
 // add a Tweet
 let addTweet = () => {
+    userName = userInput.value;
+
     let tweet = {
         id: id, // unique value 
-        contents: textArea.value
+        contents: textArea.value,
+        userName: userName,
+        time: postTime, 
+        likes:[],
+        hashtag: [] // maybe like this. or just look up in the contents string to filter (it's slower) lets keep it here, the proper. sry thinking slow hah. nw, ill hang up here, there are 3 people waiting ok thanks
     }
+    if (!userName) {
+        return alert("Insert username to tweet")
+    } 
+    
     tweetList.push(tweet); //add a new tweet to tweetList array
 
     render(tweetList);
@@ -53,8 +58,10 @@ let retweet = (originid) => {
 
     // 2. make the retweet object and it will have the same contents with original tweet and parents id 
     let retweetObject = {
-            id: id,
-            contents: originTweet.contents,
+            id: id ,
+            contents: originTweet.contents ,
+            userName: userName,
+            time: postTime, 
             originTweetID: originid // Id from the parent
         }
         //3. push retweet object into tweetList
@@ -65,13 +72,10 @@ let retweet = (originid) => {
     console.log(tweetList);
 }
 
-
-
 // Like button 
 function liketweet(x) {
     x.classList.toggle("fa-thumbs-down");
 }
-
 
 //delete Tweet 
 let deleteTweet = (deleteId) => {
@@ -81,22 +85,18 @@ let deleteTweet = (deleteId) => {
 
 };
 
-
-
-
 // Render 
 let render = (array) => {
+    
     let htmlForTweet = array.map((item) => {
-        let hashtag = item.contents.replace(/^#\w+$/, (item) => { return `<a href="#">${item}</a>` });
-
-        console.log(hashtag);
-
-
+        let hashtag = item.contents.replace(/^#\w+$/, (item2) => {  // different item
+            return `<a href="https://twitter.com/search?q=${item2}&src=typed_query">${item2}</a>` });
+            
         return `<div id="tweetOutput">
         <div class="outputTop">
             <img src="robot.png" style="">
-            <span style="padding-left:20px; padding-right:20px">Username</span>
-            <span>Time</span>
+            <span style="padding-left:20px; padding-right:20px">${item.userName}</span>
+            <span>${item.time}</span>
         </div>
         <div class="tweetBox" style="word-wrap: break-word">
             <div style="font-size: 20px; padding:10px">${hashtag}</div> 
